@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+data/users.json
+data/bots.json
+data/*.pid
+data/*.log
+bots/*
+!bots/.gitkeep
