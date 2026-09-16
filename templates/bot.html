@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a class="back-link" href="{{ url_for('dashboard') }}">← Dashboard</a>
+
+<div class="bot-header">
+  <div>
+    <div class="page-tag">// bot</div>
+    <h1>{{ bot.name }}</h1>
+    <small>{{ bot.filename }}</small>
+  </div>
+  <span id="status" class="status-badge {{ 'running' if bot.running else 'stopped' }}">
+    <span class="pulse" style="{{ 'display:none' if not bot.running }}"></span>
+    {{ 'Running' if bot.running else 'Stopped' }}
+  </span>
+</div>
+
+<div class="bot-controls">
+  <button class="btn primary sm" onclick="botAction('{{ bot.id }}', 'start')">▶ Start</button>
+  <button class="btn sm"         onclick="botAction('{{ bot.id }}', 'stop')">■ Stop</button>
+  <button class="btn sm"         onclick="botAction('{{ bot.id }}', 'restart')">↻ Restart</button>
+  <button class="btn danger sm"  onclick="deleteBot('{{ bot.id }}')">✕ Delete</button>
+</div>
+
+<div class="log-panel">
+  <div class="log-header">
+    <div class="log-title">📄 stdout / stderr</div>
+    <button class="btn sm" onclick="location.reload()">↻ Refresh</button>
+  </div>
+  <div class="log-body" id="logs">{{ logs }}</div>
+</div>
+
+{% endblock %}

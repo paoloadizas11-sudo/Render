@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="auth-wrap">
+  <div class="auth-card">
+    <h2>Create account</h2>
+    <p>Start managing your Telegram bots.</p>
+
+    <form method="post">
+      <div class="field">
+        <label>Username</label>
+        <input name="username" minlength="3" required autocomplete="username" placeholder="your_username"/>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input name="password" type="password" minlength="6" required autocomplete="new-password" placeholder="min. 6 characters"/>
+      </div>
+      <button class="btn primary full" type="submit">Create account →</button>
+    </form>
+
+    <p class="auth-foot">Already registered? <a href="{{ url_for('login') }}">Login</a></p>
+  </div>
+</div>
+
+{% endblock %}

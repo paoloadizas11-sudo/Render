@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="hero">
+  <div class="hero-badge">
+    <span class="pulse"></span>
+    99.9% uptime · Zero cold starts
+  </div>
+  <h1>Host your<br/><span class="accent">Telegram bots</span><br/>without drama</h1>
+  <p class="hero-sub">
+    Upload a Python bot, hit deploy. Automatic restarts, live logs,
+    process control — all in one clean panel.
+  </p>
+  <div class="hero-actions">
+    <a class="btn primary" href="{{ url_for('register') }}">Start for free →</a>
+    <a class="btn" href="{{ url_for('login') }}">Login</a>
+  </div>
+</section>
+
+<div class="feat-grid">
+  <div class="feat-card">
+    <span class="feat-icon">🔄</span>
+    <h3>Auto-restart on crash</h3>
+    <p>Process supervisor watches your bot. Dies? Back in under 3 seconds with full crash logs.</p>
+  </div>
+  <div class="feat-card">
+    <span class="feat-icon">📟</span>
+    <h3>Live log streaming</h3>
+    <p>See stdout and stderr from every bot in real time. No SSH. No guessing.</p>
+  </div>
+  <div class="feat-card">
+    <span class="feat-icon">🔑</span>
+    <h3>Token isolation</h3>
+    <p>Your <code>BOT_TOKEN</code> is injected as an env var at runtime. Never baked into code.</p>
+  </div>
+  <div class="feat-card">
+    <span class="feat-icon">⚙️</span>
+    <h3>One-click controls</h3>
+    <p>Start, stop, restart, or delete any bot from the dashboard. Works on mobile too.</p>
+  </div>
+  <div class="feat-card">
+    <span class="feat-icon">🐍</span>
+    <h3>Python-native</h3>
+    <p>aiogram, python-telegram-bot, Telethon — any framework that runs as a Python script.</p>
+  </div>
+  <div class="feat-card">
+    <span class="feat-icon">🤖</span>
+    <h3>Multi-bot accounts</h3>
+    <p>Manage multiple bots under one login. Each isolated, each independently controllable.</p>
+  </div>
+</div>
+
+{% endblock %}

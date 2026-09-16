@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="page-head">
+  <div>
+    <div class="page-tag">// control panel</div>
+    <h1>Your bots</h1>
+    <p>{{ bots|length }} bot{{ 's' if bots|length != 1 }} ·
+       {{ bots|selectattr('running')|list|length }} running</p>
+  </div>
+  <a class="btn primary" href="{{ url_for('create_bot') }}">＋ New bot</a>
+</div>
+
+{% if not bots %}
+  <div class="empty">
+    <h2>No bots yet</h2>
+    <p>Upload a Python file and add your bot token to get started.</p>
+    <a class="btn primary" href="{{ url_for('create_bot') }}">Deploy your first bot</a>
+  </div>
+{% else %}
+  <div class="bot-grid">
+    {% for b in bots %}
+    <a class="bot-card" href="{{ url_for('bot_page', bot_id=b.id) }}">
+      <div class="bot-avatar">🤖</div>
+      <div class="bot-info">
+        <h3>{{ b.name }}</h3>
+        <small>{{ b.filename }}</small>
+      </div>
+      <div class="status-dot {{ 'on' if b.running else 'off' }}"></div>
+    </a>
+    {% endfor %}
+  </div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="page-head">
+  <div>
+    <div class="page-tag">// new bot</div>
+    <h1>Deploy a bot</h1>
+  </div>
+</div>
+
+<div class="form-card">
+  <p>
+    Upload your Python bot file. The Telegram token is passed as
+    <code>TELEGRAM_BOT_TOKEN</code> — read it with
+    <code>os.environ["TELEGRAM_BOT_TOKEN"]</code>.
+  </p>
+
+  <form method="post" enctype="multipart/form-data">
+    <div class="field">
+      <label>Bot name</label>
+      <input name="name" placeholder="My Telegram Bot" required/>
+    </div>
+    <div class="field">
+      <label>Telegram Bot Token</label>
+      <input name="token" type="password" placeholder="123456:ABC-DEF..." required/>
+      <div class="field-hint">Get it from @BotFather. Stored server-side, not in your code.</div>
+    </div>
+    <div class="field">
+      <label>Python file (.py)</label>
+      <input name="file" type="file" accept=".py" required/>
+    </div>
+    <button class="btn primary full" type="submit">Deploy bot →</button>
+  </form>
+
+  <div class="warning-box">
+    ⚠️ Only upload code you wrote or fully trust. Python files run directly on the hosting server.
+  </div>
+</div>
+
+{% endblock %}
